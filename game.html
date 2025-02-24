@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Dominance - Bellovad Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Market Dominance</h1>
+        <p id="game-status">Year 1 - Quarter 1 | Money: $5</p>
+        <nav>
+            <a href="/dashboard.html">Back to Dashboard</a>
+        </nav>
+    </header>
+    <main>
+        <section class="market">
+            <h2>Market Segments</h2>
+            <div class="segment" id="consumer-basics">Consumer Basics (👥) - $1/token - 10 slots</div>
+            <div class="segment" id="industrial">Industrial Manufacturing (⚙️) - $2/token - 8 slots</div>
+            <div class="segment" id="financial">Financial Services (💰) - $3/token - 7 slots</div>
+            <div class="segment" id="tech">Tech Startups (🔌) - $4/token - 6 slots</div>
+            <div class="segment" id="entertainment">Entertainment Media (⭐) - $5/token - 5 slots</div>
+            <div class="segment" id="luxury">Luxury Goods (💎) - $6/token - 4 slots</div>
+            <div class="segment" id="elite">Elite Contracts (👑) - $7/token - 3 slots</div>
+        </section>
+        <section class="vps">
+            <h2>Your VPs</h2>
+            <div id="vp-list">Loading VPs...</div>
+        </section>
+        <section class="actions">
+            <h2>Actions</h2>
+            <button onclick="hireVP('HR')">Hire HR VP</button>
+            <button onclick="hireVP('Product')">Hire Product VP</button>
+        </section>
+        <script>
+            function hireVP(type) {
+                fetch('/hire-vp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ vpType: type })
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Hire failed');
+                    return response.json();
+                })
+                .then(data => {
+                    alert(data.message);
+                    setTimeout(() => {
+                        loadVPs();
+                    }, 100); // Small delay for DB
+                })
+                .catch(err => console.error('Hire VP error:', err));
+            }
+        
+            function loadVPs() {
+                fetch('/vps?t=' + Date.now(), { cache: 'no-store' })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Fetch VPs failed');
+                        return response.json();
+                    })
+                    .then(vps => {
+                        console.log('Fetched VPs:', vps);
+                        const vpList = document.getElementById('vp-list');
+                        vpList.innerHTML = vps.length ? vps.map(vp => `${vp.type} VP - Level ${vp.level}, ${vp.cubes} cube(s)`).join('<br>') : 'No VPs hired yet';
+                    })
+                    .catch(err => console.error('Load VPs error:', err));
+            }
+        
+            function loadGameState() {
+                fetch('/game-state?t=' + Date.now(), { cache: 'no-store' })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('game-status').textContent = `Year ${data.year} - Quarter ${data.quarter} | Money: $${data.money}`;
+                    })
+                    .catch(err => console.error('Load game state error:', err));
+            }
+        
+            loadGameState();
+            loadVPs();
+        </script>
+    </main>
+    <footer>
+        <p>© 2025 Bellovad Games. All rights reserved.</p>
+    </footer>
+    <script>
+        fetch('/game-state')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('game-status').textContent = 
+                    `Year ${data.year} - Quarter ${data.quarter} | Money: $${data.money}`;
+            });
+    </script>
+    <script>
+        function hireVP(type) {
+            fetch('/hire-vp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ vpType: type })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>

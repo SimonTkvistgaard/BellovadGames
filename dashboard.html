@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellovad Games - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+        <nav>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="games">
+            <h2>Available Games</h2>
+            <div class="game-list">
+                <div class="game-card">
+                    <h3>Market Dominance</h3>
+                    <p>Become the ultimate CEO by dominating markets over 5 years!</p>
+                    <button onclick="launchGame('market-dominance')">Play Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Bellovad Games. All rights reserved.</p>
+    </footer>
+    <script>
+        function launchGame(gameId) {
+            window.location.href = `/game?game=${gameId}`;
+        }
+    </script>
+</body>
+</html>

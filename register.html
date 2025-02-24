@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellovad Games - Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bellovad Games</h1>
+        <p>Create Your Account</p>
+    </header>
+    <main>
+        <section class="register">
+            <h2>Register</h2>
+            <form id="registerForm" action="/register" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="/">Login here</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Bellovad Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

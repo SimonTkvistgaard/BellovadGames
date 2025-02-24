@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellovad Games - Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bellovad Games</h1>
+        <p>Play Electronic Board Games Anytime, Anywhere</p>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to Bellovad Games</h2>
+            <p>Join us to enjoy a growing collection of electronic board games inspired by classics, playable solo or with friends!</p>
+        </section>
+        <section class="login">
+            <h2>Login</h2>
+            <form id="loginForm" action="/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Bellovad Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.intro, .login, .games {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login input, .login button {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.login button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #2980b9;
+}
+
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.game-card {
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.game-card button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.game-card button:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.register {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register input, .register button {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.register button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.register button:hover {
+    background-color: #27ae60;
+}
